@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --glass-nav-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.06);
+    --text: #0f172a;
+    --text-dim: #334155;
+    --hover: rgba(0, 0, 0, 0.06);
+    --radius: 14px;
+  
+    --g1: #fb7185; /* pink */
+    --g2: #a78bfa; /* violet */
+    --g3: #22d3ee; /* cyan */
+  }
+  
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
+    color: var(--text);
+    background:
+      linear-gradient(120deg, #fff7ed 0%, #e0f2fe 50%, #faf5ff 100%);
+  }
+  
+  .top-nav {
+    position: sticky; top: 0; z-index: 1000;
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    background: var(--glass-nav-bg);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 14px 28px rgba(16, 24, 40, 0.12);
+  }
+  
+  .top-nav ul {
+    max-width: 1100px; margin: 0 auto; padding: 0.9rem 1rem;
+    display: flex; align-items: center; gap: 0.6rem; list-style: none;
+  }
+  
+  .top-nav a {
+    display: inline-flex; align-items: center;
+    padding: 0.7rem 1.05rem; border-radius: var(--radius);
+    color: var(--text-dim); text-decoration: none; font-weight: 700;
+    transition: transform 160ms ease, background-color 160ms ease, box-shadow 180ms ease, color 160ms ease;
+  }
+  
+  .top-nav a:hover { background: var(--hover); color: var(--text); transform: translateY(-1px); }
+  
+  /* Active: multicolor gradient with glow */
+  .top-nav a.active {
+    background: linear-gradient(135deg, var(--g1), var(--g2), var(--g3));
+    color: #0b1020;
+    box-shadow: 0 12px 28px rgba(167, 139, 250, 0.28), 0 4px 12px rgba(34, 211, 238, 0.18), 0 2px 6px rgba(251, 113, 133, 0.24);
+  }
+  

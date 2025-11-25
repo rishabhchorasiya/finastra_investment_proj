@@ -1,0 +1,195 @@
+
+/* ===== Theme tokens (keep consistent across the app) ===== */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.68);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --fg: #0f172a;
+    --fg-dim: #334155;
+    --accent: #3b82f6;   /* blue */
+    --accent-2: #22d3ee; /* cyan */
+    --hover-bg: rgba(0, 0, 0, 0.06);
+    --radius: 12px;
+  }
+  
+  /* ===== Centering wrapper ===== */
+  .find-center {
+    min-height: calc(100vh - 140px); /* adjust to your header/footer height */
+    display: flex;
+    align-items: center;          /* horizontal center */
+    justify-content: center;      /* vertical center */
+    padding: 1.5rem 1rem;
+  }
+  
+  /* ===== Card container (glass) ===== */
+  .card-glass {
+    width: 100%;
+    max-width: 720px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(31, 41, 55, 0.12);
+    padding: 1.25rem 1.25rem 1.5rem;
+    color: var(--fg);
+  }
+  
+  /* Title */
+  .title {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    color: var(--fg);
+    text-align: center;
+  }
+  
+  /* ===== Form row: center layout ===== */
+  .form-row {
+    display: grid;
+    grid-template-columns: 140px 1fr auto; /* label, input, button */
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .form-row label {
+    font-weight: 700;
+    color: var(--fg-dim);
+  }
+  
+  /* Input (glass) */
+  .input-glass {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--fg);
+    outline: none;
+    transition: box-shadow 160ms ease, border-color 160ms ease;
+  }
+  .input-glass::placeholder {
+    color: #94a3b8;
+  }
+  .input-glass:focus {
+    border-color: color-mix(in oklab, var(--accent) 40%, var(--accent-2) 60%);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, var(--accent-2) 25%, transparent);
+  }
+  
+  /* Button (glass) */
+  .btn-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    border: 0;
+    border-radius: var(--radius);
+    color: #ffffff;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 10px 24px rgba(59, 130, 246, 0.25), 0 4px 10px rgba(34, 211, 238, 0.18);
+    transition: transform 160ms ease, box-shadow 180ms ease, filter 160ms ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-glass:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+    box-shadow: 0 12px 28px rgba(59, 130, 246, 0.28);
+  }
+  .btn-glass:active {
+    transform: translateY(0);
+  }
+  
+  /* ===== States ===== */
+  .info {
+    margin-top: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(34,211,238,0.12), rgba(59,130,246,0.12));
+    color: var(--fg-dim);
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .error {
+    margin-top: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--radius);
+    background: rgba(244, 63, 94, 0.10);
+    border: 1px solid rgba(244, 63, 94, 0.35);
+    color: #b91c1c;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  /* Muted/empty state */
+  .muted {
+    margin-top: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--radius);
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--fg-dim);
+    text-align: center;
+  }
+  
+  /* ===== Result block ===== */
+  .result {
+    margin-top: 0.75rem;
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 24px rgba(31, 41, 55, 0.08);
+  }
+  
+  .result-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--fg);
+    text-align: center;
+  }
+  
+  .result-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  
+  .result-item {
+    display: flex;
+    justify-content: center;        /* center line */
+    gap: 0.4rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.65);
+  }
+  
+  .result-item .label {
+    color: var(--fg-dim);
+    font-weight: 800;
+  }
+  .result-item .value {
+    color: var(--fg);
+    font-weight: 700;
+  }
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 720px) {
+    .card-glass { max-width: 560px; }
+    .form-row {
+      grid-template-columns: 1fr;    /* stack label, input, button */
+      text-align: center;
+    }
+    .form-row label {
+      justify-self: center;
+    }
+    .btn-glass {
+      justify-self: center;
+    }
+  }
+  

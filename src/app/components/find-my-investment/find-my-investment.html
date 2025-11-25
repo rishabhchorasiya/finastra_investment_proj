@@ -1,31 +1,44 @@
 
-<div class="card">
-    <h1>find my investment by ID</h1>
-    <div class="form-row">
-        <label for="investmentId"> Investment Id</label>
-        <input type="number" id="investmentId" (value)="value() ?? '' "(input)="value.set(($event.target.value))"
-            placeholder="Enter ID" />
-            <button (click)="fetchInvestment()">Find Investment</button>
-    </div>
-
-    @if(loading()){
-    <div class="info"> Loading...</div>
-    }
-    @if(error()){
-    <div class="error">{{error()}}</div>
-    }
-   
-
-@if(investment()){
-    <div class="result">
-        <h3>{{investment()?.name}}</h3>
-        <ul>
+<div class="find-center">
+    <div class="card-glass">
+      <h1 class="title">Find My Investment by ID</h1>
+  
+      <div class="form-row">
+        <label for="investmentId">Investment ID</label>
+        <input
+          type="number"
+          id="investmentId"
+          [value]="value() ?? ''"
+          (input)="value.set($event.target.value)"
+          placeholder="Enter ID"
+          class="input-glass"
+        />
+        <button class="btn-glass" (click)="fetchInvestment()">Find Investment</button>
+      </div>
+  
+      @if (loading()) {
+        <div class="info">Loading...</div>
+      }
+  
+      @if (error()) {
+        <div class="error">{{ error() }}</div>
+      }
+  
+      @if (investment()) {
+        <div class="result">
+          <h3 class="result-title">{{ investment()?.name }}</h3>
+          <ul class="result-list">
             @for (field of fields(); track field.label) {
-            <li><strong>{{field.label}}: </strong>{{field.value}} </li>
+              <li class="result-item">
+                <strong class="label">{{ field.label }}:</strong>
+                <span class="value">{{ field.value }}</span>
+              </li>
             }
-        </ul>
+          </ul>
+        </div>
+      } @else {
+        <div class="muted">Enter an ID to view the investment</div>
+      }
     </div>
-    } @else {
-        <div class="muted"> Enter an id to view the investment</div>
-    }
-</div>
+  </div>
+  

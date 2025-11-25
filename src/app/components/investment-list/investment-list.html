@@ -1,14 +1,28 @@
 
-<button (click)="displayAllInvestments()">Show All Investments</button>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; font-weight: bold;">
-        <div>Investment Name</div>
-        <div>Amount</div>
-        <div>Date</div>
-        <div>Type</div>
-    </div>
-    <div *ngFor="let investment of allInvestmentsList()" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-        <div>{{ investment.name }}</div>
-        <div>{{ investment.amount }}</div>
-        <div>{{ investment.purchaseDate }}</div>
-        <div>{{ investment.type }}</div>
-    </div>
+<div class="inv-center">
+    <button class="btn-glass" (click)="displayAllInvestments()">Show All Investments</button>
+  
+    <section class="inv-table">
+      <!-- Header -->
+      <div class="inv-row inv-header" role="row">
+        <div class="inv-cell" role="columnheader">Investment Name</div>
+        <div class="inv-cell" role="columnheader">Amount</div>
+        <div class="inv-cell" role="columnheader">Date</div>
+        <div class="inv-cell" role="columnheader">Type</div>
+      </div>
+  
+      <!-- Body -->
+      <div
+        class="inv-row"
+        role="row"
+        *ngFor="let investment of allInvestmentsList(); let i = index"
+        [class.alt]="i % 2 === 1"
+      >
+        <div class="inv-cell" role="cell">{{ investment.name }}</div>
+        <div class="inv-cell" role="cell">{{ investment.amount | currency:'INR':'symbol':'1.0-0' }}</div>
+        <div class="inv-cell" role="cell">{{ investment.purchaseDate | date:'MMM d, y' }}</div>
+        <div class="inv-cell" role="cell">{{ investment.type }}</div>
+      </div>
+    </section>
+  </div>
+  

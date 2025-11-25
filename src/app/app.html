@@ -1,12 +1,16 @@
-{{title()}}
- 
-<nav>
+
+<nav class="top-nav">
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="investment-list">Investment List</a></li>
-    <li><a href="find">Find my Investment</a></li>
+    <!-- Optional brand to the left -->
+    <li style="margin-right: auto;"><a routerLink="/" class="brand" >My App</a></li>
+
+    <li><a routerLink="/" routerLinkActive="active" >Home</a></li>
+    <li><a routerLink="/investment-list" routerLinkActive="active">Investment List</a></li>
+    <li><a routerLink="/find" routerLinkActive="active">Find my Investment</a></li>
   </ul>
 </nav>
-<!-- <app-investment-list></app-investment-list> -->
 
-<router-outlet />
+<!-- Keep router-outlet non self-closing -->
+
+
+<router-outlet></router-outlet>

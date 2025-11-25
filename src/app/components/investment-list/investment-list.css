@@ -1,0 +1,83 @@
+
+/* ===== Theme tokens (bright glass) ===== */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.68);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --fg: #0f172a;
+    --fg-dim: #334155;
+    --accent: #3b82f6;
+    --accent-2: #22d3ee;
+    --hover-bg: rgba(0, 0, 0, 0.06);
+    --radius: 12px;
+  }
+  
+  /* ===== Centering wrapper ===== */
+  .inv-center {
+    /* Center the whole block horizontally */
+    max-width: 900px;        /* adjust as needed */
+    margin: 2rem auto;       /* auto centers, top/bottom spacing */
+    padding: 0 1rem;         /* small side padding for narrow screens */
+    text-align: center;      /* center the button and any inline headings */
+  }
+  
+  /* ===== Button (glass) ===== */
+  .btn-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border: 0;
+    border-radius: var(--radius);
+    color: var(--fg);
+    font-weight: 700;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    box-shadow: 0 10px 24px rgba(31, 41, 55, 0.08);
+    transition: transform 160ms ease, box-shadow 180ms ease, background-color 160ms ease;
+    cursor: pointer;
+    margin-bottom: 1rem;   /* space under button */
+  }
+  .btn-glass:hover {
+    background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(34,211,238,0.12));
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(31,41,55,0.12);
+  }
+  
+  /* ===== Table section ===== */
+  .inv-table {
+    display: grid;
+    gap: 8px;
+    /* Center the table itself (optional if using .inv-center) */
+    justify-items: center;     /* center each row block horizontally */
+  }
+  
+  /* Each row: 4-column grid on desktop, centered text */
+  .inv-row {
+    width: 100%;
+    max-width: 900px;          /* matches container width for neat edges */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    color: var(--fg);
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(130%);
+    -webkit-backdrop-filter: blur(8px) saturate(130%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 24px rgba(31, 41, 55, 0.08);
+    transition: transform 160ms ease, box-shadow 180ms ease, background-color 160ms ease;
+    text-align: center;        /* center align cell content */
+  }
+  
+  /* Header row: sticky and high-contrast */
+  .inv-header {
+    position: sticky;
+    top: 70px; /* adjust based on your navbar height */
+    z-index: 2;
+    font-weight: 800;
+    color: var(--fg);
+  }  
