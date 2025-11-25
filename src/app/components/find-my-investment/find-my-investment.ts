@@ -16,6 +16,7 @@ private srv = inject(InvestmentService);
 id = signal<number | null>(null);
 loading = signal<boolean>(false);
 error = signal('');
+value = signal<number| string | null>(null);
 
 private id$ = toObservable(this.id).pipe(debounceTime(150),distinctUntilChanged());
 
@@ -62,8 +63,8 @@ onIdInput(event: Event) {
   this.id.set(Number.isNaN(num) ? null : num);
 }
 fetchInvestment(){
-  const currentId = this.id();
+  const currentId = this.value();
   this.id.set(null);
-  this.id.set(currentId);
+  this.id.set(Number(currentId));
 }
 }

@@ -3,7 +3,7 @@
     <h1>find my investment by ID</h1>
     <div class="form-row">
         <label for="investmentId"> Investment Id</label>
-        <input type="number" id="investmentId" (value)="id() ?? ''" (input)="onIdInput($event)"
+        <input type="number" id="investmentId" (value)="value() ?? '' "(input)="value.set(($event.target.value))"
             placeholder="Enter ID" />
             <button (click)="fetchInvestment()">Find Investment</button>
     </div>
